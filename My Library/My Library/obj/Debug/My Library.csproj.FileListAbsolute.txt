@@ -12,3 +12,11 @@ C:\C# Projects\My Library\My Library\obj\Debug\My Library.pdb
 C:\C# Projects\my-library\My Library\My Library\bin\Debug\My Library.exe.config
 C:\C# Projects\my-library\My Library\My Library\obj\Debug\My Library.exe
 C:\C# Projects\my-library\My Library\My Library\obj\Debug\My Library.pdb
+C:\C# Projects\my-library\My Library\My Library\bin\Debug\My Library.exe
+C:\C# Projects\my-library\My Library\My Library\bin\Debug\My Library.pdb
+C:\C# Projects\my-library\My Library\My Library\obj\Debug\My Library.csprojResolveAssemblyReference.cache
+C:\C# Projects\my-library\My Library\My Library\obj\Debug\My_Library.InsertForm.resources
+C:\C# Projects\my-library\My Library\My Library\obj\Debug\My_Library.Main.resources
+C:\C# Projects\my-library\My Library\My Library\obj\Debug\My_Library.Properties.Resources.resources
+C:\C# Projects\my-library\My Library\My Library\obj\Debug\My_Library.RecordsForm.resources
+C:\C# Projects\my-library\My Library\My Library\obj\Debug\My Library.csproj.GenerateResource.Cache

@@ -75,7 +75,6 @@ namespace My_Library
 
         private void title_rb_CheckedChanged(object sender, EventArgs e)
         {
-            //records.Sort((x, y) => x.getTitle().CompareTo(y.getTitle()));
             records = records.OrderBy(x => (x.getTitle().StartsWith("The ")) ? x.getTitle().Remove(0, 4) : x.getTitle()).ToList<Record>();
             if (tb == true)
                 records = records.OrderByDescending(x => (x.getTitle().StartsWith("The ")) ? x.getTitle().Remove(0, 4) : x.getTitle()).ToList<Record>();
@@ -85,19 +84,17 @@ namespace My_Library
 
         private void by_rb_CheckedChanged(object sender, EventArgs e)
         {
-            //records.Sort((x, y) => x.getBy().CompareTo(y.getBy()));
             records = records.OrderBy(x => x.getBy()).ThenBy(x => x.getReleased()).ToList<Record>();
             if (bb)
-                records = records.OrderByDescending(x => x.getBy()).ThenByDescending(x => x.getReleased()).ToList<Record>();
+                records = records.OrderByDescending(x => x.getBy()).ThenByDescending(x => x.getRating()).ToList<Record>();
             refresh(records);
             bb = !bb;
         }
 
         private void released_rb_CheckedChanged(object sender, EventArgs e)
         {
-            //records.Sort((x, y) => x.getReleased().CompareTo(y.getReleased()));
             records = records.OrderBy(x => x.getReleased()).ToList<Record>();
-            if (reb == true)
+            if (reb)
                 records = records.OrderByDescending(x => x.getReleased()).ToList<Record>();
             refresh(records);
             reb = !reb;
@@ -105,10 +102,9 @@ namespace My_Library
 
         private void rating_rb_CheckedChanged(object sender, EventArgs e)
         {
-            //records.Sort((x, y) => x.getRating().CompareTo(y.getRating()));
             records = records.OrderBy(x => x.getRating()).ThenBy(x => x.getBy()).ToList<Record>();
-            if (rab == true)
-                records = records.OrderByDescending(x => x.getRating()).ThenByDescending(x => x.getBy()).ToList<Record>();
+            if (rab)
+                records = records.OrderByDescending(x => x.getRating()).ThenBy(x => x.getBy()).ToList<Record>();
             refresh(records);
             rab = !rab;
         }
@@ -136,7 +132,7 @@ namespace My_Library
                     }
                 }
 
-                MessageBox.Show(String.Format("{0} items match your search.", count));
+                //MessageBox.Show(String.Format("{0} items match your search.", count));
             }
 
         }
