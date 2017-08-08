@@ -48,7 +48,7 @@
             this.records_lb.ItemHeight = 25;
             this.records_lb.Location = new System.Drawing.Point(0, 98);
             this.records_lb.Name = "records_lb";
-            this.records_lb.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.records_lb.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.records_lb.Size = new System.Drawing.Size(1343, 554);
             this.records_lb.TabIndex = 0;
             this.records_lb.SelectedIndexChanged += new System.EventHandler(this.records_lb_SelectedIndexChanged);

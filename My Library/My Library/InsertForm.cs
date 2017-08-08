@@ -46,14 +46,24 @@ namespace My_Library
                 try
                 {
                     recs = new List<Record>();
+                    string b;
                     string[] ts = textBox1.Text.Split(new string[] { ", " }, StringSplitOptions.None);
                     string[] res = textBox3.Text.Split(new string[] { ", " }, StringSplitOptions.None);
                     string[] ras = textBox4.Text.Split(new string[] { ", " }, StringSplitOptions.None);
+                    if (textBox2.Text.Contains(","))
+                        b = textBox2.Text;
+                    else
+                    {
+                        string[] bs = textBox2.Text.Split(' ');
+                        b = bs[bs.Length - 1] + ", ";
+                        for (int i = 0; i < bs.Length - 1; i++)
+                            b += bs[i] + " ";
+                    }
                     if (ts.Length == res.Length && res.Length == ras.Length)
                     {
                         for (int i = 0; i < ts.Length; i++)
                         {
-                            Record r = new Record(ts[i], textBox2.Text, int.Parse(res[i]), int.Parse(ras[i]));
+                            Record r = new Record(ts[i], b, int.Parse(res[i]), int.Parse(ras[i]));
                             recs.Add(r);
                         }
                     }

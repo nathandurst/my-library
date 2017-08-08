@@ -24,6 +24,7 @@ namespace My_Library
             media = m;
             this.Text = m.ToUpper();
             records_lb.Font = new Font(FontFamily.GenericMonospace, records_lb.Font.Size);
+            tb = bb = reb = rab = true;
         }
 
         public void refresh(List<Record> list)
@@ -75,8 +76,9 @@ namespace My_Library
 
         private void title_rb_CheckedChanged(object sender, EventArgs e)
         {
-            records = records.OrderBy(x => (x.getTitle().StartsWith("The ")) ? x.getTitle().Remove(0, 4) : x.getTitle()).ToList<Record>();
-            if (tb == true)
+            if (tb)
+                records = records.OrderBy(x => (x.getTitle().StartsWith("The ")) ? x.getTitle().Remove(0, 4) : x.getTitle()).ToList<Record>();
+            else
                 records = records.OrderByDescending(x => (x.getTitle().StartsWith("The ")) ? x.getTitle().Remove(0, 4) : x.getTitle()).ToList<Record>();
             refresh(records);
             tb = !tb;
@@ -84,17 +86,19 @@ namespace My_Library
 
         private void by_rb_CheckedChanged(object sender, EventArgs e)
         {
-            records = records.OrderBy(x => x.getBy()).ThenBy(x => x.getReleased()).ToList<Record>();
             if (bb)
-                records = records.OrderByDescending(x => x.getBy()).ThenByDescending(x => x.getRating()).ToList<Record>();
+                records = records.OrderBy(x => x.getBy()).ThenBy(x => x.getReleased()).ToList<Record>();
+            else
+                records = records.OrderByDescending(x => x.getBy()).ThenByDescending(x => x.getReleased()).ToList<Record>();
             refresh(records);
             bb = !bb;
         }
 
         private void released_rb_CheckedChanged(object sender, EventArgs e)
         {
-            records = records.OrderBy(x => x.getReleased()).ToList<Record>();
             if (reb)
+                records = records.OrderBy(x => x.getReleased()).ToList<Record>();
+            else
                 records = records.OrderByDescending(x => x.getReleased()).ToList<Record>();
             refresh(records);
             reb = !reb;
@@ -102,9 +106,10 @@ namespace My_Library
 
         private void rating_rb_CheckedChanged(object sender, EventArgs e)
         {
-            records = records.OrderBy(x => x.getRating()).ThenBy(x => x.getBy()).ToList<Record>();
-            if (rab)
-                records = records.OrderByDescending(x => x.getRating()).ThenBy(x => x.getBy()).ToList<Record>();
+            if(rab)
+                records = records.OrderBy(x => x.getRating()).ThenBy(x => x.getBy()).ToList<Record>();
+            else
+                records = records.OrderByDescending(x => x.getRating()).ThenByDescending(x => x.getBy()).ToList<Record>();
             refresh(records);
             rab = !rab;
         }
@@ -131,8 +136,6 @@ namespace My_Library
                         records_lb.SetSelected(records.IndexOf(r) + 2, true);
                     }
                 }
-
-                //MessageBox.Show(String.Format("{0} items match your search.", count));
             }
 
         }
